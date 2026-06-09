@@ -5,9 +5,12 @@ public class CalculadoraTrigonometrica {
     public static void main(String[] args) { //Se busca para comenzar el programa
         Scanner teclado = new Scanner(System.in);
 
+        //Se definen las variables
         int opcion;
         double angulo;
+        double radianes;
         double resultado = 0;
+        String funcion = "";
 
         System.out.println("CALCULADORA TRIGONOMETRICA");
         System.out.println("1. sen(x)");
@@ -25,13 +28,20 @@ public class CalculadoraTrigonometrica {
 
         System.out.print("Ingrese el valor del angulo en grados: ");
         angulo = teclado.nextDouble(); //Siguiente double
+        radianes = Math.toRadians(angulo); //Convierte el ángulo a radianes
 
         switch(opcion) {
                 case 1:
+                    resultado = Math.sin(radianes);
+                    funcion = "seno";
                     break;
                 case 2:
+                    resultado = Math.cos(radianes);
+                    funcion = "coseno";
                     break;
                 case 3:
+                    resultado = Math.tan(radianes);
+                    funcion = "tangente";
                     break;
                 case 4:
                     break;
@@ -51,7 +61,7 @@ public class CalculadoraTrigonometrica {
                     return;
             }
 
-        System.out.println("Resultado = " + resultado);
+        System.out.println("El " + funcion + " de " + angulo + " es " + resultado);
         teclado.close();
     }
 }
