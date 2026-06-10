@@ -29,25 +29,44 @@ public class CalculadoraTrigonometrica {
         System.out.print("Ingrese el valor del angulo en grados: ");
         angulo = teclado.nextDouble(); //Siguiente double
         radianes = Math.toRadians(angulo); //Convierte el ángulo a radianes
+        double anguloCorregido = angulo % 360;
 
         switch(opcion) {
-                case 1:
+                case 1: //Seno
                     resultado = Math.sin(radianes);
                     funcion = "seno";
                     break;
-                case 2:
+                case 2: //Coseno
                     resultado = Math.cos(radianes);
                     funcion = "coseno";
                     break;
-                case 3:
+                case 3: //Tangente
+                    if (anguloCorregido == 90 || anguloCorregido == 270) {
+                        System.out.println("Error: tangente indefinida para " + angulo + "°");
+                        break;
+                    }
                     resultado = Math.tan(radianes);
                     funcion = "tangente";
                     break;
-                case 4:
+                case 4: //arcsen
+                    if (radianes < -1 || radianes > 1) {
+                        System.out.println("Error: el angulo en radianes " + String.format("%.4f", radianes) + " debe estar entre -1 y 1");
+                        break;
+                    }
+                    resultado = Math.asin(radianes);
+                    funcion = "arcseno";
                     break;
-                case 5:
+                case 5: //arccos
+                    if (radianes < -1 || radianes > 1) {
+                        System.out.println("Error: el angulo en radianes " + String.format("%.4f", radianes) + " debe estar entre -1 y 1");
+                        break;
+                    }
+                    resultado = Math.acos(radianes);
+                    funcion = "arccoseno";
                     break;
-                case 6:
+                case 6: //arctan
+                    resultado = Math.atan(radianes);
+                    funcion = "arctangente";
                     break;
                 case 7:
                     break;
