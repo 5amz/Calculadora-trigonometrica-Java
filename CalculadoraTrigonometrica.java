@@ -54,7 +54,7 @@ public class CalculadoraTrigonometrica {
                         break;
                     }
                     resultado = Math.asin(radianes);
-                    funcion = "arcseno";
+                    funcion = "arco seno";
                     break;
                 case 5: //arccos
                     if (radianes < -1 || radianes > 1) {
@@ -62,25 +62,31 @@ public class CalculadoraTrigonometrica {
                         break;
                     }
                     resultado = Math.acos(radianes);
-                    funcion = "arccoseno";
+                    funcion = "arco coseno";
                     break;
                 case 6: //arctan
                     resultado = Math.atan(radianes);
-                    funcion = "arctangente";
+                    funcion = "arco tangente";
                     break;
                 case 7:
+                    resultado = Math.sinh(radianes);
+                    funcion = "seno hiperbolico";
                     break;
                 case 8:
+                    resultado = Math.cosh(radianes);
+                    funcion = "coseno hiperbolico";
                     break;
                 case 9:
+                    resultado = Math.tanh(radianes);
+                    funcion = "tangente hiperbolica";
                     break;
                 default:
                     System.out.println("Opcion invalida.");
                     teclado.close();
                     return;
             }
-
-        System.out.println("El " + funcion + " de " + angulo + " es " + resultado);
+        System.out.println("Operacion: " + funcion + "(" + angulo + ")");
+        System.out.println("Resultado: " + resultado);
         teclado.close();
     }
 }
